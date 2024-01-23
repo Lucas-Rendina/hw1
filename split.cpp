@@ -18,10 +18,16 @@ void split(Node*& in, Node*& odds, Node*& evens)
 {
   /* Add code here */
 // WRITE YOUR CODE HERE
+
+//base case
   if(in==nullptr){
     return;
   }
 
+//If the value is even, use a temporary node to reset the next
+//pointer, pushing the node to the front of the evens list.
+//Then, set in to its next node and recursively call the function
+//again on the next node of in.
   if(in->value%2==0){
     Node* temp = in;
     in = in->next;
@@ -31,6 +37,7 @@ void split(Node*& in, Node*& odds, Node*& evens)
     split(in,odds,evens);
     
   }
+  //If the value is odd, do the same but with odds
   else{
     Node* temp = in;
     in = in->next;
